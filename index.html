@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="/v6.4.3-dist/ol.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  
+  <div class="loader-wrapper">
+  <span class="loader">
+    <span class="loader-inner"></span> 
+  </span>
+  </div>
+  <div class="grid-container">
+    <div class="grid-1">
+      <div class="sidebar">
+        <h3> BASEMAPS</h3>
+        <input type="radio" name="BasemapsButton" value="OSMBasemap" checked>OSM Basemap<br>
+        <input type="radio" name="BasemapsButton" value="TopoBasemap" >Topographic Basemap<br>
+        <input type="radio" name="BasemapsButton" value="BingBasemap" >Satellite Basemap<br>
+        <input type="radio" name="BasemapsButton" value="TerrainBasemap">Terrain Basemap<br>
+        <input type="radio" name="BasemapsButton" value="TonerBasemap">Toner Basemap<br>
+        <input type="radio" name="BasemapsButton" value="WatercolorBasemap">Watercolor Basemap<br>
+        <h3>LAYERS</h3>
+        <input type="checkbox" name="LayersBox" value="PispidikisTopo">Topo Map Service<br>
+        <input type="checkbox" name="LayersBox" value="ArcGISRest">Density Population Service<br>
+        <input type="checkbox" name="LayersBox" value="TileDebug">Grid<br>
+        <input type="checkbox" name="LayersBox" value="WMSService">USA Meteo Service<br>
+        <input type="checkbox" name="LayersBox" value="osmvectortile">Worldwide Vector Tiles<br>
+        <input type="checkbox" name="LayersBox" value="osmcontoursvector">Contour Lines<br>
+        <input type="checkbox" name="LayersBox" value="borders">Nation Borders<br>
+        <input type="checkbox" name="LayersBox" value="PlacesGeoJSON">Places GeoJSON<br>
+        <input type="checkbox" name="LayersBox" value="PlacesKML">Places KML<br>
+        <input type="checkbox" name="LayersBox" value="HeatMap">Fires in Europe (31/07 - 02/08)<br>
+        <input type="checkbox" name="LayersBox" value="HeatMap2">Fires in Europe (03/08)<br>
+        <input type="checkbox" name="LayersBox" value="HeatMap3">Fires in Europe (06/08)<br>
+        <input type="checkbox" name="LayersBox" value="HeatMap4">Fires in Europe (07/08)<br>
+        <input type="checkbox" name="LayersBox" value="HeatMap5">Fires in Europe (08/08)<br>
+        <input type="checkbox" name="LayersBox" value="CngStations">Cng Stations in Greece<br>
+
+      </div>
+    </div>
+    <div class="grid-2">
+      <div  id='js-map' class="map"></div>
+    </div>
+  </div>
+  <div id='popup-container'>
+    <div class="Nomik ol-zoomslider ol-unselectable ol-control"></div>
+    <p id='popup-coordinates'></p>
+  </div>
+
+  <div class='overlay-container'>
+    <span class='overlay-text' id='feature_name'></span></br>
+    <span class='overlay-text' id='feature_city'></span></br>
+  </div>
+
+  <script src='/jquery/jquery-3.6.0.js'></script>
+  <script>
+    $(window).on("load",function(){
+      $(".loader-wrapper").fadeOut(4500);
+    });
+</script>
+  <script src='/v6.4.3-dist/ol.js'></script>
+  <script src="https://cdn.maptiler.com/ol-mapbox-style/v5.0.2/olms.js"></script>
+  <script src='./main.js'></script>
+</body>
+</html>
