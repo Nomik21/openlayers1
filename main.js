@@ -4,15 +4,23 @@ window.onload=setTimeout(init,1300);
 function init(){
 
     //Controls
+
+    //Full Screen Control
     const fullScreenControl = new ol.control.FullScreen({
-        labelActive: "N",
+        labelActive: "Fs",
         tipLabel: " Nomik's Full Screen Widget"
     });
+
+    
+    //Mouse Position Control
     const MousePositionControl = new ol.control.MousePosition({
          projection: "EPSG:4326"
     });
+
+
+    //OverviewMapControl
     const OverviewMapControl = new ol.control.OverviewMap({
-        collapsed:false, // If the pop-up is open
+        collapsed:true, // If the pop-up is open
         layers:[
             new ol.layer.Tile({
                 source:new ol.source.XYZ({
@@ -21,11 +29,20 @@ function init(){
             })
         ] 
     });
-    const ScaleLineControl =new ol.control.ScaleLine({
-    });
+
+
+    
+    // const ScaleLineControl =new ol.control.ScaleLine({
+    // });
+
+    //ZoomSliderControl
     const ZoomSLiderControl =new ol.control.ZoomSlider({
         //className:"Nomik ol-zoomslider ol-unselectable ol-control"
     });
+
+
+
+    //ZoomToExtentControl
     const ZoomToExtentControl = new ol.control.ZoomToExtent({
         // extent: ol.proj.fromLonLat([23.74, 37.99, 25, 39])
         extent: [ol.proj.fromLonLat([23.955, 37.851])[0], ol.proj.fromLonLat([23.955, 37.851])[1], ol.proj.fromLonLat([24.11, 37.900])[0], ol.proj.fromLonLat([24.11, 37.900])[1]],
@@ -33,8 +50,16 @@ function init(){
         label: "Z"
     });
 
+
+
+
+
+
     //Layers
+
+
     //BaseLayers ΥΠΟΒΑΘΡΑ
+    
    //OSM STANDARD
     const OsmBasemap= new ol.layer.Tile({
         source: new ol.source.OSM(),
@@ -508,7 +533,7 @@ function init(){
             fullScreenControl,
             MousePositionControl,
             OverviewMapControl,
-            ScaleLineControl,
+            //ScaleLineControl,
             ZoomSLiderControl,
             ZoomToExtentControl
         ])
@@ -518,18 +543,22 @@ function init(){
     // map.addLayer(BingTest);
     // console.log(BingTest.getSource());
     // console.log(BingTest.getKeys());
-
     console.log(ol.control.defaults())
-    const popupContainerElement=document.getElementById('popup-coordinates');
-    const popup= new ol.Overlay({
-        element: popupContainerElement,
-        positioning: "bottom-left"
-    })
 
-    map.addOverlay(popup);
+    
+    
+    
+    
+    
+    //AFORA CLICKED COORDINATES TOOL
 
-
-    //CLICKED COORDINATE TOOL
+    // const popupContainerElement=document.getElementById('popup-coordinates');
+    // const popup= new ol.Overlay({
+    //     element: popupContainerElement,
+    //     positioning: "bottom-left"
+    // })
+    // map.addOverlay(popup);
+    //CLICKED COORDINATE TOOL FUNCTION
     // map.on('click',function(e){
     //     //console.log(e.coordinate);
     //     const clickedCoordinate1 = ol.proj.toLonLat(e.coordinate); 
@@ -539,7 +568,10 @@ function init(){
     //     popupContainerElement.innerHTML=clickedCoordinate1;
     //     console.log("WGS84 λ,φ: ",clickedCoordinate1);
     //     console.log("Web Mercator Auxiliary x,y: ",clickedCoordinate, " meters")
-    //})
+    // })
+
+
+
 
 
     //POP UP OVERLAY FOR VECTOR CNG STATIONS SOS
@@ -574,16 +606,14 @@ function init(){
 
 
 
-
+    //DRAG ROTATE TOOL
     const DragRotateInteraction= new ol.interaction.DragRotate({
         condition: ol.events.condition.altKeyOnly
-    })
-
-    
-
+    })    
     map.addInteraction(DragRotateInteraction);
-    //map.addLayer(Layers2);
 
+
+    //map.addLayer(Layers2);
     //Layers2 swith logic
     
 
@@ -608,15 +638,15 @@ function init(){
 
     //map.addLayer(GroupLayer);
 
+
     
-    
+
+    //DRAW INTERACTION TOOL
     // const drawInteraction= new ol.interaction.Draw({
     //     type:'Polygon',
     //     freehand: true
     // })
-
     // map.addInteraction(drawInteraction);
-
     // drawInteraction.on('drawend', function(e){
     //     let parser=new ol.format.GeoJSON();
     //     let drawnFeatures=parser.writeFeaturesObject([e.feature]);//as a GeoJSON Feature Object
@@ -625,6 +655,9 @@ function init(){
     //     console.log(drawnFeatures.features[0].geometry.coordinates);
     //     console.log(drawnFeatures2);
     // })
+
+
+
 
     // zoom1=document.getElementsByClassName("ol-zoomslider");
     // zoom2=zoom1[0];
