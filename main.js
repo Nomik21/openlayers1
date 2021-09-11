@@ -64,7 +64,8 @@ function init(){
     const OsmBasemap= new ol.layer.Tile({
         source: new ol.source.OSM(),
           visible: true,
-          title:"OSMBasemap"
+          title:"OSMBasemap",
+          attributions:'<a href=https://www.linkedin.com/in/nikolaos-nomikos-699419206/>Ⓒ Nomikos Nikolaos <a/>'
     })
 
     const TopoBasemap =  new ol.layer.Tile({
@@ -529,7 +530,7 @@ function init(){
         layers:[Basemaps,Layers2],
         target:"js-map",
         keyboardEventTarget: document,
-        controls: ol.control.defaults().extend([
+        controls: ol.control.defaults({attribution:false}).extend([
             fullScreenControl,
             MousePositionControl,
             OverviewMapControl,
